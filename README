@@ -9,7 +9,9 @@ the system stilldevolves into a chaotic standing wave, suggesting I need to do
 more work to make the simulation stable.
 
 To try out Wavulator, clone the repository and open wavulator.html in a HTML5-
-compliant web browser.
+compliant web browser. Alternatively, Wavulator is also hosted on the GitHub
+Pages for this repository - nagivate to http://usn.pw/wavulator/wavulator.html
+to try out Wavulator without cloning if you're lazy like me.
 
 copying
 =======
