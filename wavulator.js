@@ -105,13 +105,17 @@ setInterval(function() {
   } else if(mode === "top") {
     // top middle cell is a driving oscillator
     grid[parseInt(gridWidth / 2)][0].state[0] = oscillatorValue;
-  } else if(mode === "middle") {
+  } else if(mode === "center") {
     // middle cell is a driving oscillator
     grid[parseInt(gridWidth / 2)][parseInt(gridHeight / 2)].state[0] = oscillatorValue;
   } else if(mode === "double") {
     // two top middle cell is a driving oscillator
     grid[parseInt(gridWidth / 3)][0].state[0] = oscillatorValue;
     grid[parseInt(gridWidth * 2 / 3)][0].state[0] = oscillatorValue;
+  } else if(mode === "double2") {
+    // two top middle cell is a driving oscillator, closer together
+    grid[parseInt(gridWidth * 2 / 5)][0].state[0] = oscillatorValue;
+    grid[parseInt(gridWidth * 3 / 5)][0].state[0] = oscillatorValue;
   }
   
   // 4 iterations of RK4, each sample uses a different dt value
