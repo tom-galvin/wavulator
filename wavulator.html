@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wavulator</title>
+    <meta charset="utf-8"/>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: black;
+        color: white;
+      }
+      
+      a {
+        color: #3243f6;
+      }
+      
+      #view, p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1>Wavulator</h1>
+      <p style="width: 800px">
+        This simulates a 2D transverse wave in a closed box.
+        It does this by modelling each point in the grid as a mass, attached to the grid by a spring.
+        Each mass is also connected to each neighbouring mass by another spring.
+        The simulation uses RK4 for integration - however, after a certain amount of time, the system still
+        devolves into a chaotic standing wave, suggesting I need to do more work to make the simulation stable.
+      </p>
+      Mode:
+      <select id="control-mode">
+        <option value="side">Side</option>
+        <option value="top">Top</option>
+        <option value="double" selected>Top (Double)</option>
+        <option value="center">Center</option>
+        <option value="none">None</value>
+      </select>
+      <button id="control-reset">Reset Simulation</button>
+      <br/>
+      <svg id="view" width="800" height="600"/>
+      <p style="font-style: italic">
+        Made by <a href="https://github.com/Quackmatic">Quackmatic</a> on GitHub
+      </p>
+    </div>
+  </body>
+  <script src="wavulator.js"></script>
+</head>

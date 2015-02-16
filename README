@@ -1,0 +1,14 @@
+wavulator
+=========
+
+This tool simulates a 2D transverse wave in a closed box. It does this by
+modelling each point in the grid as a mass, attached to the grid by a spring.
+Each mass is also connected to each neighbouring mass by another spring. The
+simulation uses RK4 for integration - however, after a certain amount of time,
+the system stilldevolves into a chaotic standing wave, suggesting I need to do
+more work to make the simulation stable.
+
+copying
+=======
+
+Licensed under the BSD 2-clause. See [COPYING](COPYING) for more information.
