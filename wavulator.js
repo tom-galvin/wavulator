@@ -6,7 +6,7 @@
 var svg = document.getElementById("view");
 var ctlMode = document.getElementById("control-mode");
 var ctlReset = document.getElementById("control-reset");
-var gridSize = 12, gridWidth = parseInt(800 / gridSize), gridHeight = parseInt(600 / gridSize);
+var gridSize = 20, gridWidth = parseInt(800 / gridSize), gridHeight = parseInt(600 / gridSize);
 var grid = [];
 
 // creates a DOM (SVG) element for a grid cell at position (x, y) on the grid
