@@ -1,3 +1,8 @@
+<!--
+  -- Copyright © 2015 Thomas Galvin <tom at usn.pw>
+  -- See the COPYING file for more details.
+  -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,6 +44,15 @@
         <option value="center">Center</option>
         <option value="none">None</value>
       </select>
+      Resolution:
+      <select id="control-resolution">
+        <option value="8">Ultra</option>
+        <option value="16">Fine</option>
+        <option value="24" selected>Normal</option>
+        <option value="32">Coarse</option>
+        <option value="40">Huge</option>
+      </select>
+      <label><input type="checkbox" id="control-antialias" checked/> Anti-alias</label>
       <button id="control-reset">Reset Simulation</button>
       <br/>
       <svg id="view" width="800" height="600"/>
@@ -47,5 +61,50 @@
       </p>
     </div>
   </body>
-  <script src="wavulator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/wavulator.js"></script>
+  <script>
+    var svg = document.getElementById("view");
+    var ctlMode = document.getElementById("control-mode");
+    var ctlResolution = document.getElementById("control-resolution");
+    var ctlAntialias = document.getElementById("control-antialias");
+    var ctlReset = document.getElementById("control-reset");
+
+    var grid, wavulator;
+
+    // start the simulation
+    function start() {
+      var gridSize = (ctlResolution.selectedOptions[0].value) | 0, screenWidth = 800, screenHeight = 600;
+      grid = new Grid(gridSize, (screenWidth / gridSize) | 0, (screenHeight / gridSize) | 0, svg, ctlAntialias.checked);
+      grid.draw(10);
+      wavulator = new Wavulator(grid, 0.7);
+      wavulator.tick(100);
+    }
+
+    start(20);
+
+    // reset button
+    ctlReset.addEventListener("click", function() {
+      for(var j = 0; j < grid.height; j++) {
+        for(var i = 0; i < grid.width; i++) {
+          var cell = grid.get(i, j);
+          cell.state[0] = cell.state[1] = 0;
+        }
+      }
+      t = 0;
+    });
+
+    // resolution
+    ctlResolution.addEventListener("change", function() {
+      grid.drawStop.bind(grid)();
+      grid.remove.bind(grid)();
+      wavulator.tickStop.bind(wavulator)();
+      start();
+    });
+
+    // anti aliasing
+    ctlAntialias.addEventListener("change", function() {
+      grid.antialias = !grid.antialias;
+    });
+  </script>
 </head>
