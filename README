@@ -5,12 +5,12 @@ This tool simulates a 2D transverse wave in a closed box. It does this by
 modelling each point in the grid as a mass, attached to the grid by a spring.
 Each mass is also connected to each neighbouring mass by another spring. The
 simulation uses RK4 for integration - however, after a certain amount of time,
-the system stilldevolves into a chaotic standing wave, suggesting I need to do
-more work to make the simulation stable.
+the system still devolves into a chaotic standing wave, suggesting I need to
+do more work to make the simulation stable.
 
 To try out Wavulator, clone the repository and open wavulator.html in a HTML5-
 compliant web browser. Alternatively, Wavulator is also hosted on the GitHub
-Pages for this repository - nagivate to http://usn.pw/wavulator/wavulator.html
+Pages for this repository - navigate to http://usn.pw/wavulator/wavulator.html
 to try out Wavulator without cloning if you're lazy like me.
 
 copying
